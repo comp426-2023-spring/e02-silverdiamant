@@ -102,3 +102,5 @@ process.on('SIGINT', () => {
         }    
     })
 })
+
+import {rps, rpsls} from './controllers.'
