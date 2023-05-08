@@ -20,7 +20,7 @@ function startOver() {
 async function playGame() {
 
     let game = $('input[type=radio][name=game]:checked').val();
-
+    let shot = $('input[type=radio][name=shot]:checked').val();
     let baseurl = window.location.href + 'app/'
     console.log(baseurl)
     let url = baseurl + game + '/play/' + shot

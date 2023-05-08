@@ -104,15 +104,6 @@ process.on('SIGINT', () => {
 })
 
 import { rps, rpsls } from "./lib/rpsls.js"
-import minimist from 'minimist';
-import express from 'express';
-
-// Creating an express object
-// const app = express(); 
-
-// Create port from command line arg, defaults to 5000 if no arg
-// var args = minimist(process.argv.slice(2));
-// const port = args.port || 5000;
 
 // Middleware (JSON URLEncoded)
 app.use(express.json());
@@ -169,9 +160,4 @@ app.get('/app/rpsls/play/:shot', (req, res) => {
 // Undefined endpoints
 app.get("*", (req, res) => {
   res.status(404).send("404 NOT FOUND");
-})
-
-// start server
-app.listen(port, () => {
-  console.log("listening at port 5000")
 })
