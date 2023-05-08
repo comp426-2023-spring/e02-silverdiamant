@@ -5,11 +5,26 @@ let resultVisible;
 
 function showHideShots() {
     let check = document.getElementById('opponent');
+    let checkRPS = document.getElementById('rps');
+    let checkRPSLS = document.getElementById('rpsls');
 
     if (check.checked == true) {
         $('.shots').show()
     } else {
         $('.shots').hide()
+    }
+
+    if (checkRPS.checked == true && check.checked == true) {
+        document.getElementById("lizard").style.visibility = "hidden";
+        document.getElementById("spock").style.visibility = "hidden";
+        document.getElementById("lizard_label").style.display = 'none';
+        document.getElementById("spock_label").style.display = 'none';
+    }
+    if (checkRPSLS.checked == true && check.checked == true) {
+        document.getElementById("lizard").style.visibility = "visible";
+        document.getElementById("spock").style.visibility = "visible";
+        document.getElementById("lizard_label").style.display = "inline";
+        document.getElementById("spock_label").style.display = "inline";
     }
 }
 
