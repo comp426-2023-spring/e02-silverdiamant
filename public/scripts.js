@@ -78,5 +78,16 @@ async function playGame() {
     you.innerHTML = "You: " + result.player;
     opponent.innerHTML = "Opponent: " + result.opponent;
     gResult.innerHTML = "Result: " + result.result;
+}
 
+function showRules() {
+    document.getElementById("rps_rules").style.visibility = "visible";
+    document.getElementById("rpsls_rules").style.visibility = "visible";
+    document.getElementById("close").style.visibility = "visible";
+}
+
+function closeRules() {
+    document.getElementById("rps_rules").style.visibility = "hidden";
+    document.getElementById("rpsls_rules").style.visibility = "hidden";
+    document.getElementById("close").style.visibility = "hidden";
 }
