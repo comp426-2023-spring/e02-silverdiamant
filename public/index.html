@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Rock</title>
+        <title>Play a Game</title>
 		<link href="./styles.css" rel="stylesheet">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<script src="./scripts.js"></script>
         <!-- Link to your script file(s) and CSS in here somewhere -->
     </head>
     <body onload="showHideShots()">
-		<form id="userinput" class="" action="javascript:void(0);">
+		<form id="userinput" class="form" action="javascript:void(0);">
+			<h1 id="header">Play a Game!</h1>
 			<input type="radio" id="rps" name="game" value="rps" checked onclick="showHideShots()">
 			<label for="rps">Play rock, paper, scissors?</label>
 			<br><br>
@@ -36,9 +37,9 @@
 
     <!-- Y						our interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
-	<p id="you" style="visibility: hidden">You: </p>
-	<p id="game_opponent" style="visibility: hidden">Your Opponent: </p>
-	<p id="game_result" style="visibility: hidden">Result: </p>
+	<p id="you" style="visibility: hidden"></p>
+	<p id="game_opponent" style="visibility: hidden"></p>
+	<p id="game_result" style="visibility: hidden"></p>
 	<button id="startover2" onclick="startOver()" style = "visibility: hidden">Start Over</button>
     </body>
 </html>

@@ -70,8 +70,13 @@ async function playGame() {
     $("#userinput").hide();
     resultVisible = true;
     showResults();
-}
 
-function calculateResults() {
+    let you = document.getElementById("you");
+    let opponent = document.getElementById("game_opponent");
+    let gResult = document.getElementById("game_result");
+    
+    you.innerHTML = "You: " + result.player;
+    opponent.innerHTML = "Opponent: " + result.opponent;
+    gResult.innerHTML = "Result: " + result.result;
 
 }
