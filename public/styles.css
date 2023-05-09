@@ -8,8 +8,7 @@ p {
     display: none;
 }
 
-you {
+.hide {
     visibility: hidden;
 }
-
 
