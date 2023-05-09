@@ -55,29 +55,72 @@ function showResults() {
 }
 
 async function playGame() {
-
+    let check = document.getElementById('opponent');
     let game = $('input[type=radio][name=game]:checked').val();
-    let shot = $('input[type=radio][name=shot]:checked').val();
-    let baseurl = window.location.href + 'app/'
-    console.log(baseurl)
-    let url = baseurl + game + '/play/' + shot
-    console.log(url)
+    let shot;
+    let url;
+    let baseurl;
 
-    let response = await fetch(url)
-    let result = await response.json()
-    console.log(result)
-    
-    $("#userinput").hide();
-    resultVisible = true;
-    showResults();
+    if (check.checked == true && game == "rps") {
+        shot = $('input[type=radio][name=shot]:checked').val();
+        baseurl = window.location.href + 'app/'
+        console.log(baseurl)
+        url = baseurl + game + '/play/' + shot
+        console.log(url)
+        let response = await fetch(url)
+        let result = await response.json()
+        console.log(result)
+        
+        $("#userinput").hide();
+        resultVisible = true;
+        showResults();
 
-    let you = document.getElementById("you");
-    let opponent = document.getElementById("game_opponent");
-    let gResult = document.getElementById("game_result");
+        let you = document.getElementById("you");
+        let opponent = document.getElementById("game_opponent");
+        let gResult = document.getElementById("game_result");
+        
+        you.innerHTML = "You: " + result.player.toUpperCase();
+        opponent.innerHTML = "Opponent: " + result.opponent.toUpperCase();
+        gResult.innerHTML = "Result: " + result.result.toUpperCase();
+    } else if (check.checked == true && game == "rpsls") {
+        shot = $('input[type=radio][name=shot]:checked').val();
+        baseurl = window.location.href + 'app/'
+        console.log(baseurl)
+        url = baseurl + game + '/play/' + shot
+        console.log(url)
+        let response = await fetch(url)
+        let result = await response.json()
+        console.log(result)
+        
+        $("#userinput").hide();
+        resultVisible = true;
+        showResults();
+
+        let you = document.getElementById("you");
+        let opponent = document.getElementById("game_opponent");
+        let gResult = document.getElementById("game_result");
+        
+        you.innerHTML = "You: " + result.player.toUpperCase();
+        opponent.innerHTML = "Opponent: " + result.opponent.toUpperCase();
+        gResult.innerHTML = "Result: " + result.result.toUpperCase();
+    } else {
+        baseurl = window.location.href + 'app/'
+        // console.log(baseurl)
+        url = baseurl + game
+        console.log(url)
+        let response = await fetch(url)
+        let result = await response.json()
+        console.log(result)
+        
+        $("#userinput").hide();
+        resultVisible = true;
+        showResults();
+
+        let you = document.getElementById("you");
+        
+        you.innerHTML = result.player.toUpperCase();
+    }
     
-    you.innerHTML = "You: " + result.player;
-    opponent.innerHTML = "Opponent: " + result.opponent;
-    gResult.innerHTML = "Result: " + result.result;
 }
 
 function showRules() {

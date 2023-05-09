@@ -73,10 +73,6 @@ app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:htt
 const staticpath = args.stat || args.s || process.env.STATICPATH || path.join(__dirname, 'public')
 app.use('/', express.static(staticpath))
 
-// Middleware (JSON URLEncoded)
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 // Check endpoint at /app/ that returns 200 OK
 app.get('/app/', (req, res) => {
   res.status(200).send('200 OK');
@@ -114,15 +110,15 @@ app.post('/app/rpsls/play/', (req, res) => {
 
 /* /app/rpsls/play/(rock|paper|scissors)/ returns {"player":"(rock|paper|
 scissors)","opponent":"(rock|paper|scissors)","result":"(win|lose|tie)"} */
-app.get('/app/rps/play/:shot', (req, res) =>{
-  res.status(200).send(rps(req.params.shot));
+app.get('/app/rps/play/:arg', (req, res) => {
+  res.status(200).send(rps(req.params.arg));
 })
 
 /* /app/rpsls/play/(rock|paper|scissors|lizard|spock)/ 
 returns {"player":"(rock|paper|scissors|lizard|spock)","opponent"
 :"(rock|paper|scissors|lizard|spock)","result":"(win|lose|tie)"}. */
-app.get('/app/rpsls/play/:shot', (req, res) => {
-  res.status(200).send(rpsls(req.params.shot));
+app.get('/app/rpsls/play/:arg', (req, res) => {
+  res.status(200).send(rpsls(req.params.arg));
 })
 
 // Undefined endpoints
